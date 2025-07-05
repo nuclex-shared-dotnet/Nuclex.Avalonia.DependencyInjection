@@ -18,9 +18,6 @@ limitations under the License.
 #endregion // Apache License 2.0
 
 using System;
-#if NET6_0_OR_GREATER
-using System.Runtime.Versioning;
-#endif
 
 using Microsoft.Extensions.DependencyInjection;
 
@@ -31,9 +28,6 @@ namespace Nuclex.Avalonia.DependencyInjection {
   /// <summary>
   ///   Window manager that is using Microsoft's dependency injection interfaces
   /// </summary>
-#if NET6_0_OR_GREATER
-  [SupportedOSPlatform("windows")]
-#endif
   public class DependencyInjectedWindowManager : WindowManager {
 
     #region class WindowScope
