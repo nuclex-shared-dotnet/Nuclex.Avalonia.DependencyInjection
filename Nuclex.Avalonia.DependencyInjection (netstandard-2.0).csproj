@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net462;net8.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <AssemblyName>Nuclex.Windows.Forms.DependencyInjection</AssemblyName>
-    <RootNamespace>Nuclex.Windows.Forms.DependencyInjection</RootNamespace>
+    <AssemblyName>Nuclex.Avalonia.DependencyInjection</AssemblyName>
+    <RootNamespace>Nuclex.Avalonia.DependencyInjection</RootNamespace>
     <IntermediateOutputPath>obj\source</IntermediateOutputPath>
   </PropertyGroup>
 
