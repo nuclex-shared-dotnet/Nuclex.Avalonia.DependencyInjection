@@ -34,9 +34,8 @@ namespace Nuclex.Avalonia.DependencyInjection {
     /// <returns>The service collection for method chaining</returns>
     public static IServiceCollection AddMvvm(this IServiceCollection services) {
 
-      // Allow displaying message boxes via the AvaloniaMessagePresenter which wraps
-      // the MessageBox.Avalonia library
-      services.AddSingleton<IMessageService, AvaloniaMessagePresenter>();
+      // Use the convention-over-configuration binder as the default auto binder
+      services.AddSingleton<IAutoBinder, ConventionBinder>();
 
       // The window manager keeps track of which Window is in the foreground
       // and handles opening modal or modeless windows for which it either
@@ -68,10 +67,10 @@ namespace Nuclex.Avalonia.DependencyInjection {
     /// <summary>Registers all MVVM supporting services for a WinForms application</summary>
     /// <param name="services">Service collection the services will be registered to</param>
     /// <returns>The service collection for method chaining</returns>
-    public static IServiceCollection AddCommonDialogs(this IServiceCollection services) {
+    public static IServiceCollection AddMessageDisplay(this IServiceCollection services) {
 
-      // Implementation of the message service that uses plain MessageBoxes
-      // from the Win32 API to display messages to the user
+      // Allow displaying message boxes via the AvaloniaMessagePresenter which wraps
+      // the MessageBox.Avalonia library
       services.AddSingleton<IMessageService, AvaloniaMessagePresenter>();
 
       return services;
