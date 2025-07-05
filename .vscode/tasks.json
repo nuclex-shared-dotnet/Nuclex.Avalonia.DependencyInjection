@@ -23,24 +23,6 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "Test",
-      //"dependsOn": [ "Run" ],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "type": "shell",
-      "command": "dotnet",
-      "args": [
-        "test",
-        "${workspaceFolder}/Nuclex.Avalonia.DependencyInjection.Tests (netstandard-2.0).csproj",
-      ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": "$msCompile"
-    },
-    {
       "label": "Publish",
       //"dependsOn": [ "Install" ],
       "group": {
