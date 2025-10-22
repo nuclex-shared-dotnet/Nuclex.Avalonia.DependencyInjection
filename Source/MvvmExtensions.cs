@@ -22,6 +22,7 @@ using System;
 using Microsoft.Extensions.DependencyInjection;
 
 using Nuclex.Avalonia.AutoBinding;
+using Nuclex.Avalonia.CommonDialogs;
 using Nuclex.Avalonia.Messages;
 
 namespace Nuclex.Avalonia.DependencyInjection {
@@ -59,6 +60,21 @@ namespace Nuclex.Avalonia.DependencyInjection {
       // establish data bindings or call view model methods that share their name
       // with button controls.
       services.AddSingleton<IAutoBinder, ConventionBinder>();
+
+      // The file dialogs are Avalonia's variant of the standard file and directory
+      // picker dialogs, designed to be able to work on classic desktop platforms with
+      // a user-facing file system as well as on app store and web applications where
+      // local file storage may need to go through custom platform-specific APIs.
+      services.AddSingleton<AvaloniaFileDialogs>();
+
+      // Provide the file and directory picker services tjhrough our AvaloniaFileDialogs
+      // service which handles both implementations.
+      services.AddSingleton<IFilePickerService>(
+        sp => sp.GetRequiredService<AvaloniaFileDialogs>()
+      );
+      services.AddSingleton<IDirectoryPickerService>(
+        sp => sp.GetRequiredService<AvaloniaFileDialogs>()
+      );
 
       return services;
 
